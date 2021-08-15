@@ -1,3 +1,32 @@
+
+# Public API:
+
+react-router-dom is currently required to read the loginToken parameter for single sign on.
+
+In your index.js, add the MatrixAuthProvider around your App.
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import {createBrowserHistory} from "history";
+import {Router} from "react-router-dom";
+import {MatrixAuthProvider} from "./context/MatrixAuthContext";
+
+const history = createBrowserHistory();
+ReactDOM.render(
+    <React.StrictMode>
+        <Router history={history}>
+            <MatrixAuthProvider>
+                <App/>
+            </MatrixAuthProvider>
+        </Router>
+    </React.StrictMode>,
+    document.getElementById('root')
+);
+```
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
